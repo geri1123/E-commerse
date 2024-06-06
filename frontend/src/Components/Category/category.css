@@ -1,0 +1,22 @@
+
+.cat h1{
+   
+    
+}
+.cat a{
+    text-decoration: none;
+     font-size: 36px;
+    font-weight: 600;
+    color: white;
+    padding: 20px 10px;
+}
+.category{
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+
+}

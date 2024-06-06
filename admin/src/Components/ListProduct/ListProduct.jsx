@@ -3,6 +3,7 @@ import './ListProduct.css'
 import cros_icon from "../../assets/cross_icon.png"
 const ListProduct = () => {
    const [allproducts , setAllProducts]=useState([]);
+   const [searchTerm , setSearchTerm]=useState('');
    const fetchInfo =async ()=>{
      await fetch('http://localhost:4000/allproducts')
      .then((res)=>res.json())
@@ -29,6 +30,11 @@ const ListProduct = () => {
   return (
     <div className='list-product'>
       <h1>All products</h1>
+      <input type="text" 
+      placeholder='search..'
+      onChange={(event)=>{setSearchTerm(event.target.value)}}
+      />
+      <p>{allproducts.length} products on the list</p> {/* filter((e)=>e.category.includes('men'))*/}
       <div className="listproducts-format-main">
         <p>products</p>
         <p>title</p>
@@ -39,7 +45,15 @@ const ListProduct = () => {
       </div>
       <div className="listproduct-allproducts">
         <hr />
-         {allproducts.map((product ,index )=>{
+         {allproducts.filter((product)=>{
+          if(searchTerm==""){
+            return product
+          } else if(product.name.toLowerCase().includes(searchTerm.toLowerCase())){
+            return product
+          }
+
+         })
+         .map((product ,index )=>{
           return <>
           <div key={index} className="listproducts-format-main list-product-format" >
             <img src={product.image} alt="" className="listproduct-product-icon" />

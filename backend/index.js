@@ -103,6 +103,23 @@ app.get('/allproducts' , async(req , res)=>{
     res.send(products);
 })
 
+//creating endpoint for new newcolection data
+app.get('/newcollections' , async(req , res)=>{
+    let products=await Product.find({});
+    let newcollections=products.slice(1).slice(-8);
+    console.log('new collection fetch');
+    res.send(newcollections);
+})
+
+//create one endpoin for popular in women section
+app.get('/popularinwomen' , async(req , res)=>{
+
+    let products=await Product.find({category:"women"});
+    let popular_in_women=products.slice(0 , 4);
+    console.log("popular in woman fetch");
+    res.send(popular_in_women);
+
+})
 
 app.listen(port ,(error)=>{
     if(!error){

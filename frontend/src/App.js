@@ -11,6 +11,8 @@ import Footer from './Components/Footer/Footer';
 import men_banner from './Components/Assets/banner_mens.png';
 import women_banner from './Components/Assets/banner_women.png';
 import kid_banner from './Components/Assets/banner_kids.png';
+ import Categoryitem from './Pages/Categoryitem';
+import category from './Components/Assets/category';
 
 
 function App() {
@@ -40,6 +42,13 @@ function App() {
           <Route path="/product/:productId" >
           <Product/>
           </Route>
+          {/* <Route path="/categoryitem/:catname" >
+            <Categoryitem/>
+          </Route> */}
+          <Route path="/categoryitem/:catname" >
+            <Categoryitem  category={category.catname}/>
+          </Route>
+          
             
 
             

@@ -7,6 +7,7 @@ const Cartitems = () => {
 
   return (
     <div className='cartitems'>
+      {/* <p>ToTal card items {getTotalCartItems()}</p> */}
         <div className="cartitem-format-main">
             <p>Products</p>
             <p>Title</p>
@@ -16,10 +17,10 @@ const Cartitems = () => {
             <p>Remove</p>
         </div>
         <hr />
-      {all_product.map((e)=>{
+      {all_product.map((e , i)=>{
             if(cartItems[e.id]>0){
                 return   <div>
-                <div className="cartitems-format cartitem-format-main">
+                <div key={i} className="cartitems-format cartitem-format-main">
                     <img src={e.image} alt="" className='carticon-product-icon'/>
                     <p>{e.name}</p>
                     <p>${e.new_price}</p>
